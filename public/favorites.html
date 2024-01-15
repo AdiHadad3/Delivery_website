@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Foodwagon | Responsive, Ecommerce &amp; Business Templatee</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="assets/css/theme.css" rel="stylesheet" />
+    <link href="myCss.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="myCss.css" rel="stylesheet" />
+</head>
+
+
+<body onload="init()">
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container firstSection">
+                <a class="navbar-brand d-inline-flex" href="index.html"><img class="d-inline-block" src="assets/img/gallery/logo.svg" alt="logo" /><span class="text-1000 fs-3 fw-bold ms-2 text-gradient">foodwaGon</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+                <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
+                    <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
+                        <p class="mb-0 fw-bold text-lg-center">Deliver to: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">Current Location </span></p>
+                    </div>
+                    <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0">
+                        <div class="input-group-icon pe-2">
+                            <i class="fas fa-search input-box-icon text-primary"></i>
+                            <input class="form-control border-0 input-box bg-100" type="search" placeholder="Search Food" aria-label="Search" />
+                        </div>
+                        <div>
+                            <input type="button" class="btn btn-white shadow-warning text-warning" value="Return to home page" onclick="location.href='index.html'" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="py-5 overflow-hidden bg-primary" id="home">
+            <div class="container">
+                <div class="row flex-center">
+                    <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0"><a class="img-landing-banner" href="#!"><img class="img-fluid" src="assets/img/gallery/hero-header.png" alt="hero-header" /></a></div>
+                    <div class="col-md-7 col-lg-6 py-8 text-md-start text-center">
+                        <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">My Favorites</h1>
+                        <h1 class="text-800 mb-5 fs-4">Filter Restaurants:</h1>
+                        <div class="card w-xxl-75">
+                            <div class="card-body filtersCard">
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <button class="nav-link active mb-3" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" onclick="onTabChange(this.textContent)"><i class="fas fa-motorcycle me-2"></i>Delivery</button>
+                                        <button class="nav-link mb-3" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" onclick="onTabChange(this.textContent)"><i class="fas fa-concierge-bell me-2"></i>Sitting</button>
+                                    </div>
+                                </nav>
+                                <div id="filter" class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <label>Food Type</label>
+                                        <br />
+                                        <div id="multiple-select-Cuisines">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <label>Price Range For Two</label><br />
+                                        <div id="select-AverageCostfortwo">
+                                            <input type="radio" value="0" name="range" />0-99 <br />
+                                            <input type="radio" value="1" name="range" />100-299 <br />
+                                            <input type="radio" value="2" name="range" />300-599 <br />
+                                            <input type="radio" value="3" name="range" />600-999 <br />
+                                            <input type="radio" value="4" name="range" />1000-1999 <br />
+                                            <input type="radio" value="5" name="range" />2000+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content mt-3" id="nav-tabContent">
+                                <div>
+                                    <input type="button" name="btnSearch" value="Find Food" onclick="findFood()" id="btnFind" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ============================================-->
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+        <section id="testimonial">
+            <div class="container">
+                <div class="row h-100">
+                    <div class="col-lg-7 mx-auto text-center mb-6">
+                        <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3">My Favorites</h5>
+                    </div>
+                </div>
+                <div class="row gx-2">
+                    <div class="col-12 d-flex justify-content-center mt-5"> <a class="btn btn-lg btn-primary" href="#!">Show more<i class="fas fa-chevron-right ms-2"> </i></a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/@popperjs/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="../Restaurants.js"></script>
+    <!-- ===============================================-->
+    <!--    PART 1   -->
+    <!-- ===============================================-->
+    <script src="part1.js"></script>
+    <script>
+        function init() {
+            $(home).hide();
+            strFavor = "";
+            if (localStorage["cgroup64"] != undefined) {
+                cgroup64 = JSON.parse(localStorage["cgroup64"]);
+            }
+            strFavor = `<div class="container">
+        <div class="row h-100">
+            <div class="col-lg-7 mx-auto text-center mb-6">
+                <h5 class="fw-bold fs-3 fs-lg-5 lh-sm mb-3">My Favorites Restaurants</h5>
+            </div>
+        </div>
+        <div class="row gx-2">`;
+            fav = cgroup64.users[cgroup64.activeUser].favorites;
+            for (var i = 0; i < fav.length; i++) {
+                strFavor+=print(fav[i])
+            }
+            document.getElementById("testimonial").innerHTML = strFavor + `</div>
+                </div>`;
+
+            $(".card-img-overlay").append('<button type="button" class="RemoveFav badge bg - primary ms - 2 me - 1 p - 2"><i class="fas fa-trash me - 1 fs - 0"></i></button>')
+            $(".PutToFav").hide()
+        }
+        $(document).on("click", ".RemoveFav", function () {
+            favRestaurantIndex = $(this).parent().attr('id');
+            arrFav = cgroup64.users[cgroup64.activeUser].favorites;
+            for (var i = 0; i < arrFav.length; i++) {
+                if (arrFav[i] == favRestaurantIndex)
+                    arrFav.splice(i, 1);
+            }
+            localStorage["cgroup64"] = JSON.stringify(cgroup64);
+            init();
+        })
+
+        $(document).on("click", ".resDiv", function () {
+            if ((!event.target.classList.contains('RemoveFav')) && (!event.target.classList.contains('fa-trash'))) {
+                window.location = "MenuPage.html";
+            }
+        })
+    </script>
+    </body>
+</html>

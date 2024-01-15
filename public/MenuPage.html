@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #b58f51;
+        }
+
+        .nameDish, #ord, #showPrice{
+            font-weight: bold;
+        }
+
+        #container {
+            border: solid;
+            border-color: #b58f51;
+            padding-left: 40px;
+            margin: 0 300px;
+        }
+
+        h2 {
+            color: #b58f51;
+        }
+
+        .PriceDish {
+            color: #b58f51;
+        }
+
+        #ord{
+            border-bottom-style:solid;
+        }
+    </style>
+
+    <script src="Menu.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+
+</head>
+<body onload="init()">
+    <h1>MENU</h1>
+    <div id="container">
+        <div id="firstD">
+            <h2>First Dishes</h2>
+        </div>
+        <div id="mainD">
+            <h2 id="mainD">Main Dishes</h2>
+        </div>
+        <div id="sidesD">
+            <h2 id="sidesD">Sides Dishes</h2>
+        </div>
+        <br />
+        <p id="ord">Cart:</p>
+        <div id="order">
+            <div id="details"></div>
+            <p id="showPrice"></p>
+            <input type="button" value="Order" onclick="finishBtn()"/>
+        </div>
+    </div>
+    
+    <script>
+        function init()//this page will open only if the user login-there is a LS
+        {
+            if (localStorage["cgroup64"] != undefined) {
+                cgroup64 = JSON.parse(localStorage["cgroup64"]);
+            }
+            
+            for (var i = 0; i < menu.length; i++) {
+                if (menu[i]["category"] == "first")
+                    $("#firstD").append(`<p> <span class="nameDish">${menu[i]["name"]}</span> | <span class="DescDish">${menu[i]["description"]}</span> | <span class="PriceDish">${menu[i]["price"]}</span> <input type="button" class="add" id=${i} value="+" /></p>`)
+                if (menu[i]["category"] == "main")
+                    $("#mainD").append(`<p><span class="nameDish">${menu[i]["name"]}</span> | <span class="DescDish">${menu[i]["description"]}</span> | <span class="PriceDish">${menu[i]["price"]}</span> <input type="button" class="add" id=${i} value="+" /></p>`)
+                if (menu[i]["category"] == "sides")
+                    $("#sidesD").append(`<p><span class="nameDish">${menu[i]["name"]}</span> | <span class="DescDish">${menu[i]["description"]}</span> | <span class="PriceDish">${menu[i]["price"]}</span> <input type="button" class="add" id=${i} value="+" /></p>`)
+                if (cgroup64.activeUser == null)
+                {
+                    $(".add").hide();
+                    $("#ord").hide();
+                    $("#order").hide();
+                }
+            }
+        }
+        dishesInOrder = [];
+        totalPrice = 0;
+        $(document).on("click", ".add", function () {
+            $("#order").show();
+            currentDish = $(this).attr('id');
+            dishesInOrder.push(menu[currentDish]);
+            $("#details").prepend(`<p> Name: ${menu[currentDish]["name"]} | Price: ${menu[currentDish]["price"]} </p>`);
+            totalPrice += menu[currentDish]["price"];
+            $("#showPrice").html(`Total Price: ${totalPrice}`);
+        })
+
+
+        function finishBtn() {
+            if (dishesInOrder.length > 0) {
+                if (totalPrice < 300) {
+                    totalPrice += 50;
+                    alert("Your order has been accepted! Shipping fee of 50 NIS have been added");
+                    dishesInOrder.push(`${totalPrice}`);
+                }
+                else {
+                    alert("Your order has been accepted!");
+                    dishesInOrder.push(`${totalPrice}`);
+                }
+                //dishesInOrder.push(`total price: ${totalPrice}`) // need to check how to add it
+                cgroup64.users[cgroup64.activeUser].orders.push(dishesInOrder);
+                localStorage["cgroup64"] = JSON.stringify(cgroup64);
+                dishesInOrder = [];
+                $("#details").html("")
+                $("#showPrice").html("")
+            }
+        }
+
+
+    </script>
+</body>
+</html>

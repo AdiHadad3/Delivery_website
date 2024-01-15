@@ -1,0 +1,256 @@
+﻿#multiple-select-Cuisines, #select-AverageCostfortwo {
+    border: 2px solid #ccc;
+    width: 175px;
+    height: 100px;
+    overflow-y: scroll;
+    float: left;
+    text-align: start;
+}
+
+#filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+    #filter label {
+        margin-bottom: 0;
+    }
+
+        #filter label:first-child {
+            float: left;
+            font-weight: bold !important;
+        }
+
+#btnFind {
+    background-color: #F17228;
+    border-color: #F17228;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #424242;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFFEFE;
+    border: 1px solid transparent;
+    padding: 0.5rem 2.2rem;
+    font-size: 1rem;
+    border-radius: 0.2rem;
+}
+
+#nav-tabContent {
+    padding: 1rem 1rem;
+    flex: 1 1 auto;
+}
+
+.mt-3 {
+    margin-top: 0 !important;
+}
+
+@media only screen and (max-width:600px) {
+
+    #filter, .filtersCard {
+        display: grid;
+        justify-content: center;
+    }
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+#btnLogin, #btnSign {
+    background-color: #FFB30E;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#btnSign {
+    background-color: #c9c3b6b0
+}
+
+#btnLogin:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+#MainLogin {
+    padding: 0;
+}
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+.PutToFav:hover {
+    opacity: 0.6;
+}
+
+#favoritesBtn, #logOutBtn, .PutToFav,.addCom {
+    display: none;
+}
+
+.RemoveFav {
+    color: black;
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+.RemoveFav {
+    background-color: #131313;
+    line-height: 0.8125rem;
+    height: 35px;
+    width: 40px;
+    color: white;
+}
+.bg-holder {
+    background-image: url(assets/img/gallery/cta-one-bg.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.card-span {
+    border-radius: 35px;
+}
+
+.ins {
+    margin-bottom: -122px;
+}
+
+#map {
+    height: 400px;
+}
+
+#btnMap {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#popupContainer {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#popupContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#closePopup {
+    margin-top: 10px;
+}
+
